@@ -172,6 +172,7 @@ summary(gg1)
 ```{r cluster_predefind, include=FALSE}
 file <- system.file("extdata", "PPI_cluster.gml", package = "BioNAR")
 ggCluster <- igraph::read_graph(file,format="gml")
+summary(ggCluster)
 ```
 
 # Annotate the nodes with node attributes
@@ -191,6 +192,22 @@ summary(gg)
 head(V(gg))
 head(V(gg)$GeneName)
 ```
+
+Some of the functions downstream requires non-empty GeneNames, so we have to 
+check that annotation assign values to all nodes:
+```{r check_genenames_na}
+any(is.na(V(gg)$GeneName))
+```
+The result of this command should be `r FALSE`.
+
+The most recent version of the `org.Hs.eg.db`(3.19.7) package contains error: the gene 
+"GRPEL1" is missing, so for the rest of the vignette working properly we need
+to fix this manually:
+```{r fix.GRPEL1}
+idx <- which(V(gg)$name == '80273')
+V(gg)$GeneName[idx]<-'GRPEL1'
+```
+
 
 ## Diseases
 
