@@ -166,6 +166,10 @@ calcEntropy <- function(gg, maxSr = NULL, exVal = NULL) {
 #' tbl <- read.csv(file, sep="\t")
 #' gg <- buildNetwork(tbl)
 #' gg<-annotateGeneNames(gg)
+#' any(is.na(V(gg)$GeneName))
+#' # due to error in org.Hs.eg.db we have to manually annotate one node
+#' idx <- which(V(gg)$name == '80273')
+#' V(gg)$GeneName[idx]<-'GRPEL1'
 #' e<- getEntropy(gg)
 getEntropy <- function(gg, maxSr = NULL, exVal = NULL) {
     if (!"GeneName" %in% vertex_attr_names(gg)) {
