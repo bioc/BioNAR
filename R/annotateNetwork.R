@@ -61,6 +61,9 @@ ESC      <- "|"
 #' file <- system.file("extdata", "PPI_Presynaptic.gml", package = "BioNAR")
 #' gg <- igraph::read_graph(file, format="gml")
 #' agg<-annotateGeneNames(gg)
+#' # due to error in org.Hs.eg.db we have to manually annotate one node
+#' idx <- which(V(agg)$name == '80273')
+#' V(agg)$GeneName[idx]<-'GRPEL1'
 annotateGeneNames <-
     function(gg, orgDB = org.Hs.eg.db, keytype = "ENTREZID") {
         ids <- V(gg)$name
