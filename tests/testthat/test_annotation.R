@@ -35,7 +35,7 @@ test_that('GeneNames annotated',{
     #' # due to error in org.Hs.eg.db we have to manually annotate one node
     idx <- which(V(gN)$name == '80273')
     #V(gg)$GeneName[idx]<-'GRPEL1'
-    expect_true(is.na(V(gN)$GeneName[idx]))
+    expect_false(is.na(V(gN)$GeneName[idx]))
 })
 
 test_that('DiseaseType',{

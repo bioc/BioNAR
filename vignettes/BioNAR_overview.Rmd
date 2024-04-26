@@ -200,9 +200,6 @@ any(is.na(V(gg)$GeneName))
 ```
 The result of this command should be `r FALSE`.
 
-The most recent version of the `org.Hs.eg.db`(3.19.7) package contains error: the gene 
-"GRPEL1" is missing, so for the rest of the vignette working properly we need
-to fix this manually:
 ```{r fix.GRPEL1, eval=any(is.na(V(gg)$GeneName))}
 idx <- which(V(gg)$name == '80273')
 V(gg)$GeneName[idx]<-'GRPEL1'

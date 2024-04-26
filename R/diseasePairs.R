@@ -136,9 +136,9 @@ diseaseOverlap <- function(GG, GDA, disA, disB, OO){
 #' file <- system.file("extdata", "PPI_Presynaptic.gml", package = "BioNAR")
 #' gg <- igraph::read_graph(file, format="gml")
 #' agg<-annotateGeneNames(gg)
-#' # due to error in org.Hs.eg.db we have to manually annotate one node
+#' # due to error in org.Hs.eg.db we have to manually check annotation of one node
 #' idx <- which(V(agg)$name == '80273')
-#' V(agg)$GeneName[idx]<-'GRPEL1'
+#' paste(V(agg)$GeneName[idx], 'GRPEL1')
 #' gda<-prepareGDA(agg, 'TopOntoOVGHDOID')
 #' m<-degreeBinnedGDAs(agg, gda, getAnnotationList(gda))
 #' c(dim(m), vcount(agg), length(getAnnotationList(gda)))
@@ -176,9 +176,9 @@ degreeBinnedGDAs <- function(gg, GDA, dtype) {
 #' file <- system.file("extdata", "PPI_Presynaptic.gml", package = "BioNAR")
 #' gg <- igraph::read_graph(file, format="gml")
 #' agg<-annotateGeneNames(gg)
-#' # due to error in org.Hs.eg.db we have to manually annotate one node
+#' # due to error in org.Hs.eg.db we have to manually check annotation of one node
 #' idx <- which(V(agg)$name == '80273')
-#' V(agg)$GeneName[idx]<-'GRPEL1'
+#' paste(V(agg)$GeneName[idx], 'GRPEL1')
 #' gda<-prepareGDA(agg, 'TopOntoOVGHDOID')
 #' diseases<-getAnnotationList(gda)
 #' m<-degreeBinnedGDAs(agg, gda, diseases)
@@ -229,9 +229,9 @@ sampleDegBinnedGDA <- function(org.map, term) {
 #' file <- system.file("extdata", "PPI_Presynaptic.gml", package = "BioNAR")
 #' gg <- igraph::read_graph(file, format="gml")
 #' agg<-annotateGeneNames(gg)
-#' # due to error in org.Hs.eg.db we have to manually annotate one node
+#' # due to error in org.Hs.eg.db we have to manually check annotation of one node
 #' idx <- which(V(agg)$name == '80273')
-#' V(agg)$GeneName[idx]<-'GRPEL1'
+#' paste(V(agg)$GeneName[idx], 'GRPEL1')
 #' gda<-prepareGDA(agg, 'TopOntoOVGHDOID')
 #' gda<-prepareGDA(agg, 'TopOntoOVGHDOID')
 #' head(gda)
@@ -277,9 +277,9 @@ prepareGDA <- function(gg, name) {
 #' file <- system.file("extdata", "PPI_Presynaptic.gml", package = "BioNAR")
 #' gg <- igraph::read_graph(file, format="gml")
 #' agg<-annotateGeneNames(gg)
-#' # due to error in org.Hs.eg.db we have to manually annotate one node
+#' # due to error in org.Hs.eg.db we have to manually check annotation of one node
 #' idx <- which(V(agg)$name == '80273')
-#' V(agg)$GeneName[idx]<-'GRPEL1'
+#' paste(V(agg)$GeneName[idx], 'GRPEL1')
 #' p <- calcDiseasePairs(
 #' agg,
 #' name = "TopOntoOVGHDOID",
@@ -435,9 +435,9 @@ toNum <- function(.x) {
 #' file <- system.file("extdata", "PPI_Presynaptic.gml", package = "BioNAR")
 #' gg <- igraph::read_graph(file, format="gml")
 #' agg<-annotateGeneNames(gg)
-#' # due to error in org.Hs.eg.db we have to manually annotate one node
+#' # due to error in org.Hs.eg.db we have to manually check annotation of one node
 #' idx <- which(V(agg)$name == '80273')
-#' V(agg)$GeneName[idx]<-'GRPEL1'
+#' paste(V(agg)$GeneName[idx], 'GRPEL1')
 #' r <- runPermDisease(
 #' agg,
 #' name = "TopOntoOVGHDOID",
