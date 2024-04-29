@@ -113,8 +113,8 @@ getEntropyRate <- function(gg) {
 #' gg <- buildNetwork(tbl)
 #' gg<-annotateGeneNames(gg)
 #' # due to error in org.Hs.eg.db we have to manually check annotation of one node
-#' idx <- which(V(agg)$name == '80273')
-#' paste(V(agg)$GeneName[idx], 'GRPEL1')
+#' idx <- which(V(gg)$name == '80273')
+#' paste(V(gg)$GeneName[idx], 'GRPEL1')
 #' gg<- calcEntropy(gg)
 calcEntropy <- function(gg, maxSr = NULL, exVal = NULL) {
     SRprime <- getEntropy(gg, maxSr = maxSr, exVal = exVal)
@@ -171,8 +171,8 @@ calcEntropy <- function(gg, maxSr = NULL, exVal = NULL) {
 #' gg<-annotateGeneNames(gg)
 #' any(is.na(V(gg)$GeneName))
 #' # due to error in org.Hs.eg.db we have to manually check annotation of one node
-#' idx <- which(V(agg)$name == '80273')
-#' paste(V(agg)$GeneName[idx], 'GRPEL1')
+#' idx <- which(V(gg)$name == '80273')
+#' paste(V(gg)$GeneName[idx], 'GRPEL1')
 #' e<- getEntropy(gg)
 getEntropy <- function(gg, maxSr = NULL, exVal = NULL) {
     if (!"GeneName" %in% vertex_attr_names(gg)) {
@@ -335,8 +335,8 @@ getEntropyOverExpressed <- function(SRprime, perc = 1) {
 #' gg <- buildNetwork(tbl)
 #' gg<-annotateGeneNames(gg)
 #' # due to error in org.Hs.eg.db we have to manually check annotation of one node
-#' idx <- which(V(agg)$name == '80273')
-#' paste(V(agg)$GeneName[idx], 'GRPEL1')
+#' idx <- which(V(gg)$name == '80273')
+#' paste(V(gg)$GeneName[idx], 'GRPEL1')
 #' ent <- getEntropyRate(gg)
 #' SRprime <- getEntropy(gg, maxSr = NULL)
 #' plotEntropy(SRprime, subTIT = "Entropy", SRo = ent$SRo, maxSr = ent$maxSr)

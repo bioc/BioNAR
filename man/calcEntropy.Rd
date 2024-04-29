@@ -42,8 +42,8 @@ tbl <- read.csv(file, sep="\t")
 gg <- buildNetwork(tbl)
 gg<-annotateGeneNames(gg)
 # due to error in org.Hs.eg.db we have to manually check annotation of one node
-idx <- which(V(agg)$name == '80273')
-paste(V(agg)$GeneName[idx], 'GRPEL1')
+idx <- which(V(gg)$name == '80273')
+paste(V(gg)$GeneName[idx], 'GRPEL1')
 gg<- calcEntropy(gg)
 }
 \seealso{
