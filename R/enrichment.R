@@ -43,10 +43,10 @@
 #' \itemize{
 #'   \item alg – name of the clustering algorithm;
 #'   \item cl – cluster ID;
-#'   \item Fl – name of the enriched term;
+#'   \item FL – name of the enriched term;
 #'   \item N – number vertices in the network;
 #'   \item Fn – number of vertices in the graph annotated by term \code{Fl} (\eqn{F_n});
-#'   \item Cu – size of the cluster;
+#'   \item Cn – size of the cluster;
 #'   \item Mu – number of vertices in the cluster annotated by term \code{Fl} (\eqn{\mu});
 #'   \item OR – odds ratio ;
 #'   \item CIl – odds ratio 95% confidence interval lower bound (\eqn{CI_l});
