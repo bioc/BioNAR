@@ -1,3 +1,4 @@
+btgroups<-c('SCC', 'IN', 'OUT', 'TU', 'IDR', 'ODR', 'OTR' )
 #' Calculates bow-tie decomposition and marks vertices with one of the
 #' following in the \code{BowTie} attribute:
 #' \itemize{
@@ -57,13 +58,29 @@ markBowTie<-function(g){
         }
         #cat(i,'(',irv,vro,')\n')
     }
-    adf<-rbind(data.frame(ID=sccV,val='SCC'),
-               data.frame(ID=inV,val='IN'),
-               data.frame(ID=outV,val='OUT'),
-               data.frame(ID=tuV,val='TU'),
-               data.frame(ID=idrV,val='IDR'),
-               data.frame(ID=odrV,val='ODR'),
-               data.frame(ID=otrV,val='OTR'))
+    l<-list()
+    if(length(sccV)>0){
+        l[['SCC']]<-data.frame(ID=sccV,val='SCC')
+    }
+    if(length(inV)>0){
+        l[['IN']]<-data.frame(ID=inV,val='IN')
+    }
+    if(length(outV)>0){
+        l[['OUT']]<-data.frame(ID=outV,val='OUT')
+    }
+    if(length(tuV)>0){
+        l[['TU']]<-data.frame(ID=tuV,val='TU')
+    }
+    if(length(idrV)>0){
+        l[['IDR']]<-data.frame(ID=idrV,val='IDR')
+    }
+    if(length(odrV)>0){
+        l[['ODR']]<-data.frame(ID=odrV,val='ODR')
+    }
+    if(length(otrV)>0){
+        l[['OTR']]<-data.frame(ID=otrV,val='OTR')
+    }
+    adf<-do.call(rbind,l)
     ggm <- annotateVertex(g,'BowTie',adf)
     return(ggm)
 }
